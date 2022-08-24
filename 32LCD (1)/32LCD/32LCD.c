@@ -1,4 +1,4 @@
-#define F_CPU 1000UL 
+#define F_CPU 8000000UL 
 #include <avr/io.h>
 #include <util/delay.h>
 #include <stdlib.h>
@@ -39,9 +39,9 @@ int main(void)
 	
 lcd_init(LCD_DISP_ON_CURSOR); /*initialize lcd,display on, cursor on */
 
-        lcd_clrscr();             /* clear screen of lcd */
+                 lcd_clrscr();             /* clear screen of lcd */
 		lcd_home();               /* bring cursor to 0,0 */
-		lcd_puts("Please Vote");        /* type something random */
+		lcd_puts("hello");        /* type something random */
 		lcd_gotoxy(0,1);          /* go to 2nd row 1st col */
 
 
@@ -52,9 +52,9 @@ lcd_init(LCD_DISP_ON_CURSOR); /*initialize lcd,display on, cursor on */
 		/* LCD16x2 cursor position */
 		//value=ADC_Read(0);	/* Read ADC channel 0 */
 		//itoa(value,String,10);	/* Integer to string conversion */ 
-		
-		lcd_puts("Group - 1");
-		_delay_ms(20000);
-		lcd_clrscr();					
+		lcd_puts("My name is Khan");
+		_delay_ms(20);
+		 lcd_clrscr();						
+				
 	}
 }

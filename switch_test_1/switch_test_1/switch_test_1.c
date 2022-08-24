@@ -34,27 +34,34 @@ int main(void)
 {
 	//char String[5];
 	//int value;
-
+	DDRA=0;
 	//ADC_Init();
+	PORTA=00000011;
+	int16_t COUNTA =0;
+	char SHOWA [16];
+	
 	
 lcd_init(LCD_DISP_ON_CURSOR); /*initialize lcd,display on, cursor on */
 
         lcd_clrscr();             /* clear screen of lcd */
 		lcd_home();               /* bring cursor to 0,0 */
-		lcd_puts("Please Vote");        /* type something random */
+		lcd_puts("PLEASE VOTE");        /* type something random */
 		lcd_gotoxy(0,1);          /* go to 2nd row 1st col */
 
 
 		lcd_puts("");  /* type something random */
        while(1)
 	{
-	
+		
 		/* LCD16x2 cursor position */
 		//value=ADC_Read(0);	/* Read ADC channel 0 */
 		//itoa(value,String,10);	/* Integer to string conversion */ 
+		if ((PINA &(00000001))==0)
+		{
+			COUNTA++;
+			
+		}
+		lcd_puts(COUNTA);
+		lcd_clrscr();
 		
-		lcd_puts("Group - 1");
-		_delay_ms(20000);
-		lcd_clrscr();					
-	}
 }
